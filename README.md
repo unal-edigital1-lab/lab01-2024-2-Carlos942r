@@ -1,8 +1,6 @@
 # lab01- sumador 
 ## Carlos Pastor Alfonso Sanabria
 
-## informe de laboratorio 
-
 ### sumador 1 bit
 
 ### Suma de bits con acarreo usando operaciones lógicas básicas.
@@ -42,7 +40,7 @@ module sum1bcc_primitive (A, B, Ci, Cout, S);
 endmodule
 ```
 
-###Ssuma simple con acarreo utilizando un registro para almacenar el resultado de la operación
+###Suma simple con acarreo utilizando un registro para almacenar el resultado de la operación
 
 ```verilog
 module sum1bcc (A, B, Ci, Cout, S);
