@@ -5,8 +5,7 @@
 
 ### sumador 
 
-
-
+```verilog
 module sum1bcc_primitive (A, B, Ci, Cout, S);
 
   // Declaración de puertos de entrada
@@ -39,3 +38,4 @@ module sum1bcc_primitive (A, B, Ci, Cout, S);
   or (Cout, cout_t, a_ab);
 
 endmodule
+```
