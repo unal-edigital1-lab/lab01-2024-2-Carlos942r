@@ -39,3 +39,33 @@ module sum1bcc_primitive (A, B, Ci, Cout, S);
 
 endmodule
 ```
+
+```verilog
+module sum1bcc (A, B, Ci, Cout, S);
+
+  // Declaración de puertos de entrada
+  input  A;   // Primer bit de entrada
+  input  B;   // Segundo bit de entrada
+  input  Ci;  // Acarreo de entrada
+  
+  // Declaración de puertos de salida
+  output Cout; // Acarreo de salida
+  output S;    // Resultado de la suma
+
+  // Declaración de un registro de 2 bits para almacenar el resultado de la suma
+  reg [1:0] st;
+
+  // Asignación del bit menos significativo del registro 'st' a la salida 'S'
+  assign S = st[0];
+
+  // Asignación del bit más significativo del registro 'st' a la salida 'Cout'
+  assign Cout = st[1];
+
+  // Bloque 'always' que se ejecuta siempre que haya un cambio en cualquiera de las entradas
+  always @ ( * ) begin
+    // Realiza la suma de A, B y Ci y almacena el resultado en el registro 'st'
+    st  <=   A + B + Ci;
+  end
+  
+endmodule
+```
