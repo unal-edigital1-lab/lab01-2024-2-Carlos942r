@@ -5,28 +5,37 @@
 
 ### sumador 
 
-```verilog
 
-module sum1bcc_primitive (A, B, Ci,Cout,S);
 
-  input  A;
-  input  B;
-  input  Ci;***
-  output Cout;
-  output S;
-## asignando salidas
+module sum1bcc_primitive (A, B, Ci, Cout, S);
 
-  wire a_ab;
-  wire x_ab;
-  wire cout_t;
+  // Declaración de puertos de entrada
+  input  A;   // Primer bit de entrada
+  input  B;   // Segundo bit de entrada
+  input  Ci;  // Acarreo de entrada
+  
+  // Declaración de puertos de salida
+  output Cout; // Acarreo de salida
+  output S;    // Resultado de la suma
 
-  and(a_ab,A,B);
-  xor(x_ab,A,B);
+  // Declaración de cables intermedios
+  wire a_ab;    // Cable para el resultado de AND entre A y B
+  wire x_ab;    // Cable para el resultado de XOR entre A y B
+  wire cout_t;  // Cable para el acarreo temporal
 
-  xor(S,x_ab,Ci);
-  and(cout_t,x_ab,Ci);
+  // Operación AND entre A y B
+  and(a_ab, A, B);
 
-  or (Cout,cout_t,a_ab);
+  // Operación XOR entre A y B
+  xor(x_ab, A, B);
+
+  // Operación XOR entre el resultado de XOR anterior y Ci
+  xor(S, x_ab, Ci);
+
+  // Operación AND entre el resultado de XOR anterior y Ci
+  and(cout_t, x_ab, Ci);
+
+  // Operación OR entre el acarreo temporal y el resultado de AND entre A y B
+  or (Cout, cout_t, a_ab);
 
 endmodule
-```
