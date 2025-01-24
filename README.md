@@ -14,6 +14,7 @@ module sum1bcc_primitive (A, B, Ci,Cout,S);
   input  Ci;***
   output Cout;
   output S;
+## asignando salidas
 
   wire a_ab;
   wire x_ab;
