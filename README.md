@@ -5,23 +5,27 @@
 
 ### sumador 
 
-### inicio
+```verilog
 
-module sum1bcc (A, B, Ci,Cout,S);
+module sum1bcc_primitive (A, B, Ci,Cout,S);
 
   input  A;
   input  B;
-  input  Ci;
+  input  Ci;***
   output Cout;
   output S;
 
-  reg [1:0] st;
+  wire a_ab;
+  wire x_ab;
+  wire cout_t;
 
-  assign S = st[0];
-  assign Cout = st[1];
+  and(a_ab,A,B);
+  xor(x_ab,A,B);
 
-  always @ ( * ) begin
-    st  <=   A+B+Ci;
-  end
-  
+  xor(S,x_ab,Ci);
+  and(cout_t,x_ab,Ci);
+
+  or (Cout,cout_t,a_ab);
+
 endmodule
+```
