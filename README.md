@@ -1,9 +1,9 @@
 # lab01- sumador 
-## nombres
+## Carlos Pastor Alfonso Sanabria
 
 ## informe de laoratorio 
 
-### sumador 
+### sumador 1 bit
 
 ```verilog
 module sum1bcc_primitive (A, B, Ci, Cout, S);
